@@ -8,7 +8,6 @@ import {
 import { Server, Socket } from 'socket.io';
 
 interface User {
-  id: number;
   username: string;
   socketId: string;
 }
@@ -40,7 +39,7 @@ export class IndexGateway {
       if (client.rooms.has(data.roomName)) {
         console.log('already joined in : ', data.roomName);
       } else {
-        client.join(data.roomName);
+        await client.join(data.roomName);
       }
     } else {
       client.emit('exception', 'you are not connected');
@@ -48,10 +47,7 @@ export class IndexGateway {
   }
 
   @SubscribeMessage('server-chat')
-  async serverChat(
-    @ConnectedSocket() client: Socket,
-    @MessageBody() data: Message,
-  ) {
+  serverChat(@ConnectedSocket() client: Socket, @MessageBody() data: Message) {
     if (data.roomName) {
       return this.server.to(data.roomName).emit('client-chat', data);
     }

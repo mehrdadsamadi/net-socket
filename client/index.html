@@ -17,9 +17,8 @@
   <!-- msg-header section starts -->
   <div class="msg-header">
     <div class="container1">
-      <img class="msgimg" src="user1.png" />
       <div class="active">
-        <p>User name</p>
+        <p id="username"></p>
       </div>
     </div>
   </div>
@@ -31,47 +30,7 @@
 
       <div class="chats">
         <!-- Message container -->
-        <div class="msg-page">
-          <!-- Incoming messages -->
-          <div class="received-chats">
-            <div class="received-chats-img">
-              <img src="user2.png" />
-            </div>
-            <div class="received-msg">
-              <div class="received-msg-inbox">
-                <p>
-                  Hi !! This is message from Riya . Lorem ipsum, dolor sit
-                  amet consectetur adipisicing elit. Non quas nemo eum,
-                  earum sunt, nobis similique quisquam eveniet pariatur
-                  commodi modi voluptatibus iusto omnis harum illum iste
-                  distinctio expedita illo!
-                </p>
-                <span class="time">18:06 PM | July 24</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Outgoing messages -->
-          <div class="outgoing-chats">
-            <div class="outgoing-chats-img">
-              <img src="user1.png" />
-            </div>
-            <div class="outgoing-msg">
-              <div class="outgoing-chats-msg">
-                <p class="multi-msg">
-                  Hi riya , Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Illo nobis deleniti earum magni
-                  recusandae assumenda.
-                </p>
-                <p class="multi-msg">
-                  Lorem ipsum dolor sit amet consectetur.
-                </p>
-
-                <span class="time">18:30 PM | July 24</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="msg-page" id="msg-page"></div>
       </div>
 
       <!-- msg-bottom section -->
@@ -79,18 +38,24 @@
         <div class="input-group">
           <input
             class="form-control"
+            id="msg-input"
             placeholder="Write message..."
             type="text"
           />
 
-          <span class="input-group-text send-icon">
-                <i class="bi bi-send"></i>
-              </span>
+          <span class="input-group-text send-icon" id="send-btn">
+            <i class="bi bi-send"></i>
+          </span>
         </div>
       </div>
     </div>
   </div>
 
 </div>
+
+<script crossorigin="anonymous"
+        integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+"
+        src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
