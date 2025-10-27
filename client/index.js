@@ -1,4 +1,11 @@
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:3000', {
+  auth: {
+    token: '123',
+  },
+  query: {
+    token: '456',
+  },
+});
 
 socket.on('connect', () => {
   console.log('connected');
